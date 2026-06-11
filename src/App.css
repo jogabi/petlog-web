@@ -594,14 +594,39 @@ button {
 }
 
 .cost-card {
-  display: grid;
-  grid-template-columns: 1fr 112px;
+  position: relative;
   min-height: 150px;
   overflow: hidden;
+  background-color: transparent;
+  background-position: right center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.cost-bg-1 {
+  background-image: url('./assets/cost-case-1.png');
+}
+
+.cost-bg-2 {
+  background-image: url('./assets/cost-case-2.png');
+}
+
+.cost-bg-3 {
+  background-image: url('./assets/cost-case-3.png');
 }
 
 .cost-copy {
-  padding: 16px 14px 14px 16px;
+  position: relative;
+  z-index: 1;
+  width: 58%;
+  min-height: 150px;
+  padding: 16px 10px 14px 16px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 250, 245, 0.42) 0%,
+    rgba(255, 250, 245, 0.2) 50%,
+    rgba(255, 250, 245, 0) 100%
+  );
 }
 
 .cost-copy > span {
@@ -620,8 +645,9 @@ button {
   display: block;
   margin-top: 4px;
   color: #2a1a12;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 900;
+  line-height: 1.35;
 }
 
 .cost-copy ul {
@@ -633,10 +659,6 @@ button {
   color: #5c4a40;
   font-size: 12px;
   font-weight: 700;
-}
-
-.cost-image {
-  min-height: 150px;
 }
 
 .checklist-card {

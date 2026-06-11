@@ -6,21 +6,21 @@ const costCases = [
     title: '개별 화장',
     total: '총 비용 42만원',
     details: ['기본 화장 35만원', '픽업 5만원', '추모 용품 2만원'],
-    tone: 5,
+    imageClass: 'cost-bg-1',
   },
   {
     pet: '고양이 · 4kg',
     title: '개별 화장',
     total: '총 비용 38만원',
     details: ['기본 화장 30만원', '픽업 5만원', '추모 용품 3만원'],
-    tone: 6,
+    imageClass: 'cost-bg-2',
   },
   {
     pet: '강아지 · 10kg',
     title: '개별 화장',
     total: '총 비용 58만원',
     details: ['기본 화장 50만원', '픽업 5만원', '추모 용품 3만원'],
-    tone: 7,
+    imageClass: 'cost-bg-3',
   },
 ]
 
@@ -33,7 +33,7 @@ export function CostCases() {
       </div>
       <div className="cost-case-grid">
         {costCases.map((item) => (
-          <article className="cost-card" key={item.pet}>
+          <article className={`cost-card ${item.imageClass}`} key={item.pet}>
             <div className="cost-copy">
               <span>{item.pet}</span>
               <h3>{item.title}</h3>
@@ -44,7 +44,6 @@ export function CostCases() {
                 ))}
               </ul>
             </div>
-            <div className={`image-placeholder cost-image tone-${item.tone}`} />
           </article>
         ))}
         <article className="checklist-card">
