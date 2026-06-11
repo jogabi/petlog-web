@@ -617,8 +617,8 @@ button {
 
 .cost-bg-3 {
   background-image: url('./assets/cost-case-3.png');
-  background-position: right 38% top -23%;
-  background-size: 148% auto;
+  background-position: right 38% center;
+  background-size: 142% auto;
 }
 
 .cost-copy {
