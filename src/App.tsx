@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import {
   BadgeDollarSign,
   Bell,
@@ -105,6 +105,7 @@ const defaultFilters: Required<ProviderFilters> = {
 
 function App() {
   const compareSectionRef = useRef<HTMLDivElement>(null)
+  const searchPanelRef = useRef<HTMLElement>(null)
   const [filters, setFilters] = useState(defaultFilters)
   const [appliedFilters, setAppliedFilters] = useState(defaultFilters)
   const [openDropdown, setOpenDropdown] = useState<OpenDropdown>(null)
@@ -119,6 +120,29 @@ function App() {
   const resultText = hasCompared
     ? `${visibleProviders.length}개 업체가 조건에 맞아요`
     : '추천 장례업체'
+
+  useEffect(() => {
+    if (!openDropdown) return
+
+    const closeDropdownOnOutsideClick = (event: PointerEvent) => {
+      const target = event.target
+
+      if (
+        target instanceof Node &&
+        searchPanelRef.current?.contains(target)
+      ) {
+        return
+      }
+
+      setOpenDropdown(null)
+    }
+
+    document.addEventListener('pointerdown', closeDropdownOnOutsideClick)
+
+    return () => {
+      document.removeEventListener('pointerdown', closeDropdownOnOutsideClick)
+    }
+  }, [openDropdown])
 
   const updateFilter = <K extends keyof typeof filters>(
     key: K,
@@ -189,7 +213,11 @@ function App() {
         </div>
       </section>
 
-      <section className="search-panel" aria-label="장례 서비스 검색">
+      <section
+        className="search-panel"
+        aria-label="장례 서비스 검색"
+        ref={searchPanelRef}
+      >
         <div className="search-copy">
           우리 아이에게
           <br />
