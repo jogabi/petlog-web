@@ -587,6 +587,10 @@ button {
   margin-top: 30px;
 }
 
+.popular-guides {
+  margin-bottom: 54px;
+}
+
 .cost-case-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -605,13 +609,13 @@ button {
 
 .cost-bg-1 {
   background-image: url('./assets/cost-case-1.png');
-  background-position: right 56% center;
+  background-position: 44% 62%;
   background-size: 112% auto;
 }
 
 .cost-bg-2 {
   background-image: url('./assets/cost-case-2.png');
-  background-position: right 56% center;
+  background-position: 44% 62%;
   background-size: 112% auto;
 }
 
