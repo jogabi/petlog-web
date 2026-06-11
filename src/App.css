@@ -595,7 +595,7 @@ button {
 
 .cost-card {
   position: relative;
-  min-height: 150px;
+  min-height: 140px;
   overflow: hidden;
   background-color: transparent;
   background-position: right center;
@@ -605,21 +605,27 @@ button {
 
 .cost-bg-1 {
   background-image: url('./assets/cost-case-1.png');
+  background-position: right 48% center;
+  background-size: 112% auto;
 }
 
 .cost-bg-2 {
   background-image: url('./assets/cost-case-2.png');
+  background-position: right 48% center;
+  background-size: 112% auto;
 }
 
 .cost-bg-3 {
   background-image: url('./assets/cost-case-3.png');
+  background-position: right 38% top -23%;
+  background-size: 148% auto;
 }
 
 .cost-copy {
   position: relative;
   z-index: 1;
   width: 58%;
-  min-height: 150px;
+  min-height: 140px;
   padding: 16px 10px 14px 16px;
   background: linear-gradient(
     90deg,
@@ -665,7 +671,7 @@ button {
   display: grid;
   align-content: center;
   justify-items: center;
-  min-height: 150px;
+  min-height: 140px;
   padding: 20px;
   color: #7a3f1f;
   text-align: center;
