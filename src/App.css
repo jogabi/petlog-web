@@ -97,24 +97,22 @@ button {
 
 .hero-section {
   position: relative;
-  max-width: 1402px;
+  width: 100%;
   min-height: 313px;
   margin: 0 auto;
-  padding: 46px 148px 26px;
+  padding: 46px max(30px, calc((100vw - 1402px) / 2 + 148px)) 26px;
   overflow: hidden;
 }
 
-.hero-image {
+.hero-section::before {
   position: absolute;
-  top: 4px;
-  right: 0;
+  inset: 0;
   z-index: 0;
-  width: clamp(560px, 58vw, 790px);
-  height: auto;
-  max-height: 314px;
-  object-fit: contain;
-  object-position: right center;
-  pointer-events: none;
+  content: '';
+  background-image: url('./assets/banner.png');
+  background-position: right center;
+  background-repeat: no-repeat;
+  background-size: auto 313px;
 }
 
 .hero-section::after {
@@ -737,8 +735,8 @@ button {
     gap: 16px;
   }
 
-  .hero-image {
-    width: clamp(510px, 57vw, 690px);
+  .hero-section::before {
+    background-position: right center;
   }
 }
 
@@ -746,11 +744,6 @@ button {
   .hero-section {
     min-height: 520px;
     padding-top: 330px;
-  }
-
-  .hero-image {
-    width: 100%;
-    max-height: none;
   }
 
   .hero-section::after {

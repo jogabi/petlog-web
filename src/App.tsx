@@ -16,7 +16,6 @@ import {
   Search,
   Star,
 } from 'lucide-react'
-import bannerImage from './assets/banner.png'
 import {
   getLocalFuneralProviders,
   type ProviderFilters,
@@ -169,7 +168,6 @@ function App() {
       </header>
 
       <section className="hero-section">
-        <img className="hero-image" src={bannerImage} alt="" />
         <div className="hero-content">
           <h1>소중한 우리 아이의 마지막 순간, 펫로그가 함께합니다</h1>
           <p className="lead">
