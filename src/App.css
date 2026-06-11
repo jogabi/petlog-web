@@ -605,20 +605,20 @@ button {
 
 .cost-bg-1 {
   background-image: url('./assets/cost-case-1.png');
-  background-position: right 48% center;
+  background-position: right 56% center;
   background-size: 112% auto;
 }
 
 .cost-bg-2 {
   background-image: url('./assets/cost-case-2.png');
-  background-position: right 48% center;
+  background-position: right 56% center;
   background-size: 112% auto;
 }
 
 .cost-bg-3 {
   background-image: url('./assets/cost-case-3.png');
   background-position: right 38% center;
-  background-size: 142% auto;
+  background-size: 136% auto;
 }
 
 .cost-copy {
