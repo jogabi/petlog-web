@@ -60,7 +60,7 @@ button {
 
 .brand small {
   margin-top: 3px;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1;
   font-weight: 700;
 }
@@ -73,7 +73,7 @@ button {
 
 .nav a {
   color: #17110f;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 900;
   text-decoration: none;
   white-space: nowrap;
@@ -103,7 +103,7 @@ button {
   border-radius: 7px;
   color: var(--brown);
   background: rgba(255, 250, 245, 0.86);
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 900;
 }
 
@@ -161,7 +161,7 @@ button {
 .lead {
   margin: 18px 0 0;
   color: #251914;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.58;
   font-weight: 700;
 }
@@ -208,7 +208,7 @@ button {
 .quick-links p {
   margin: 5px 0 0;
   color: #3f332d;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.45;
   font-weight: 700;
 }
@@ -257,7 +257,7 @@ button {
 
 .select-field > span {
   color: #17110f;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 900;
 }
 
@@ -273,7 +273,7 @@ button {
   border-radius: 7px;
   color: #6f4b3e;
   background: #fffdfb;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 800;
   text-align: left;
 }
@@ -311,7 +311,7 @@ button {
   border-radius: 7px;
   background: transparent;
   color: #432417;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 900;
   text-align: left;
 }
@@ -327,7 +327,7 @@ button {
   color: #fffaf5;
   background: linear-gradient(180deg, #7d4b31, #5b311d);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 900;
 }
 
@@ -348,7 +348,7 @@ button {
 
 .section-heading a {
   color: #6b2f18;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 900;
   text-decoration: none;
 }
@@ -363,7 +363,7 @@ button {
 .filter-summary {
   margin: 4px 0 0;
   color: #7a5745;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 800;
 }
 
@@ -486,7 +486,7 @@ button {
   border-radius: 999px;
   color: #7c4b31;
   background: #f2e3d4;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 900;
 }
 
@@ -502,7 +502,7 @@ button {
   gap: 5px;
   margin: 8px 0 0;
   color: #5c4a40;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 800;
 }
 
@@ -538,7 +538,7 @@ button {
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.76);
   color: #624538;
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 900;
 }
 
@@ -579,7 +579,7 @@ button {
 }
 
 .quick-links p {
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .cost-cases,
@@ -588,7 +588,7 @@ button {
 }
 
 .popular-guides {
-  margin-bottom: 54px;
+  margin-bottom: 76px;
 }
 
 .cost-case-grid {
@@ -667,7 +667,7 @@ button {
   padding: 0;
   list-style: none;
   color: #5c4a40;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
 }
 
@@ -691,7 +691,7 @@ button {
 .checklist-card p {
   margin: 9px 0 17px;
   color: #5c4a40;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.5;
   font-weight: 700;
 }
@@ -707,7 +707,7 @@ button {
   border-radius: 7px;
   color: #fffaf5;
   background: #673818;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 900;
   text-decoration: none;
 }
@@ -744,7 +744,7 @@ button {
 .popular-guide-card p {
   margin: 8px 0 0;
   color: #5c4a40;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.45;
   font-weight: 700;
 }
@@ -762,7 +762,7 @@ button {
   border: 1px solid rgba(226, 210, 198, 0.92);
   border-radius: 8px;
   background:
-    linear-gradient(90deg, #f7efe6 0%, #fbf5ee 27%, #fffaf5 58%, #fffdf9 100%),
+    linear-gradient(90deg, #fbf1e7 0%, #fff8f1 19%, #fffdf9 54%, #fffaf4 100%),
     #fffaf5;
   box-shadow: 0 10px 24px rgba(112, 73, 47, 0.035);
 }
@@ -792,7 +792,7 @@ button {
 .guide-cta p {
   margin: 7px 0 0;
   color: #5c4a40;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.45;
   font-weight: 700;
 }
@@ -806,7 +806,7 @@ button {
   color: #5a2c17;
   background: rgba(255, 252, 248, 0.86);
   box-shadow: 0 8px 18px rgba(116, 79, 54, 0.045);
-  font-size: 15px;
+  font-size: 17px;
 }
 
 .footer {
@@ -820,7 +820,7 @@ button {
 .footer-brand p {
   margin: 16px 0 0;
   color: #4b3b32;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.65;
   font-weight: 700;
 }
@@ -854,7 +854,7 @@ button {
 .footer-column p {
   margin: 0;
   color: #4b3b32;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.5;
   font-weight: 700;
   text-decoration: none;
@@ -863,7 +863,7 @@ button {
 .copyright {
   margin: 18px 0 0;
   color: #4c4540;
-  font-size: 12px;
+  font-size: 14px;
   text-align: center;
 }
 
