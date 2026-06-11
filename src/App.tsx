@@ -1,3 +1,4 @@
+import { useMemo, useRef, useState } from 'react'
 import {
   BadgeDollarSign,
   Bell,
@@ -16,6 +17,18 @@ import {
   Star,
 } from 'lucide-react'
 import bannerImage from './assets/banner.png'
+import {
+  getLocalFuneralProviders,
+  type ProviderFilters,
+} from './services/providerService'
+import {
+  funeralProviders,
+  petTypeOptions,
+  regionOptions,
+  weightOptions,
+  type PetType,
+  type WeightRange,
+} from './data/providers'
 import './App.css'
 
 const features = [
@@ -33,38 +46,6 @@ const features = [
     icon: Heart,
     title: '추모 커뮤니티',
     description: '우리 아이를 기억하고 이야기를 나눌 수 있어요',
-  },
-]
-
-const providers = [
-  {
-    name: '21그램',
-    area: '서울 강남구',
-    rating: '4.9',
-    reviews: '324',
-    price: '개별 화장 35만원~',
-    badge: '인기',
-  },
-  {
-    name: '펫포레스트',
-    area: '경기 용인시',
-    rating: '4.8',
-    reviews: '256',
-    price: '개별 화장 40만원~',
-  },
-  {
-    name: '펫포유',
-    area: '서울 강서구',
-    rating: '4.7',
-    reviews: '198',
-    price: '개별 화장 38만원~',
-  },
-  {
-    name: '레인보우엔젤',
-    area: '인천 서구',
-    rating: '4.8',
-    reviews: '187',
-    price: '개별 화장 37만원~',
   },
 ]
 
@@ -115,24 +96,48 @@ const quickLinks = [
   },
 ]
 
-const regions = [
-  '서울',
-  '경기',
-  '인천',
-  '부산',
-  '대구',
-  '대전',
-  '광주',
-  '울산',
-  '세종',
-  '강원',
-  '충청',
-  '전라',
-  '경상',
-  '제주',
-]
+type OpenDropdown = 'region' | 'petType' | 'weight' | null
+
+const defaultFilters: Required<ProviderFilters> = {
+  region: '',
+  petType: '',
+  weightRange: '',
+}
 
 function App() {
+  const compareSectionRef = useRef<HTMLDivElement>(null)
+  const [filters, setFilters] = useState(defaultFilters)
+  const [appliedFilters, setAppliedFilters] = useState(defaultFilters)
+  const [openDropdown, setOpenDropdown] = useState<OpenDropdown>(null)
+  const [hasCompared, setHasCompared] = useState(false)
+
+  const comparedProviders = useMemo(
+    () => getLocalFuneralProviders(appliedFilters),
+    [appliedFilters],
+  )
+
+  const visibleProviders = hasCompared ? comparedProviders : funeralProviders
+  const resultText = hasCompared
+    ? `${visibleProviders.length}개 업체가 조건에 맞아요`
+    : '추천 장례업체'
+
+  const updateFilter = <K extends keyof typeof filters>(
+    key: K,
+    value: (typeof filters)[K],
+  ) => {
+    setFilters((current) => ({ ...current, [key]: value }))
+    setOpenDropdown(null)
+  }
+
+  const handleCompare = () => {
+    setAppliedFilters(filters)
+    setHasCompared(true)
+    compareSectionRef.current?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    })
+  }
+
   return (
     <main className="app-shell">
       <header className="topbar">
@@ -194,68 +199,165 @@ function App() {
           <br />
           찾아보세요
         </div>
-        <label className="select-field">
+        <div className="select-field">
           <span>지역 선택</span>
-          <button type="button">
+          <button
+            type="button"
+            aria-expanded={openDropdown === 'region'}
+            onClick={() =>
+              setOpenDropdown((current) =>
+                current === 'region' ? null : 'region',
+              )
+            }
+          >
             <MapPin size={19} />
-            지역을 선택하세요
+            {filters.region || '지역을 선택하세요'}
             <ChevronDown size={18} />
           </button>
-        </label>
-        <label className="select-field">
+          {openDropdown === 'region' ? (
+            <div className="dropdown-menu">
+              <button type="button" onClick={() => updateFilter('region', '')}>
+                전체 지역
+              </button>
+              {regionOptions.map((region) => (
+                <button
+                  type="button"
+                  key={region}
+                  onClick={() => updateFilter('region', region)}
+                >
+                  {region}
+                </button>
+              ))}
+            </div>
+          ) : null}
+        </div>
+        <div className="select-field">
           <span>아이 종류</span>
-          <button type="button">
+          <button
+            type="button"
+            aria-expanded={openDropdown === 'petType'}
+            onClick={() =>
+              setOpenDropdown((current) =>
+                current === 'petType' ? null : 'petType',
+              )
+            }
+          >
             <PawPrint size={20} />
-            아이 종류를 선택하세요
+            {filters.petType || '아이 종류를 선택하세요'}
             <ChevronDown size={18} />
           </button>
-        </label>
-        <label className="select-field">
+          {openDropdown === 'petType' ? (
+            <div className="dropdown-menu">
+              <button type="button" onClick={() => updateFilter('petType', '')}>
+                전체 종류
+              </button>
+              {petTypeOptions.map((petType) => (
+                <button
+                  type="button"
+                  key={petType}
+                  onClick={() => updateFilter('petType', petType as PetType)}
+                >
+                  {petType}
+                </button>
+              ))}
+            </div>
+          ) : null}
+        </div>
+        <div className="select-field">
           <span>아이 체중</span>
-          <button type="button">
+          <button
+            type="button"
+            aria-expanded={openDropdown === 'weight'}
+            onClick={() =>
+              setOpenDropdown((current) =>
+                current === 'weight' ? null : 'weight',
+              )
+            }
+          >
             <LockKeyhole size={18} />
-            체중을 선택하세요
+            {filters.weightRange || '체중을 선택하세요'}
             <ChevronDown size={18} />
           </button>
-        </label>
-        <button className="compare-button" type="button">
+          {openDropdown === 'weight' ? (
+            <div className="dropdown-menu">
+              <button
+                type="button"
+                onClick={() => updateFilter('weightRange', '')}
+              >
+                전체 체중
+              </button>
+              {weightOptions.map((weight) => (
+                <button
+                  type="button"
+                  key={weight}
+                  onClick={() =>
+                    updateFilter('weightRange', weight as WeightRange)
+                  }
+                >
+                  {weight}
+                </button>
+              ))}
+            </div>
+          ) : null}
+        </div>
+        <button className="compare-button" type="button" onClick={handleCompare}>
           업체 비교하기
         </button>
       </section>
 
       <section className="main-grid">
-        <div className="providers-section" id="compare">
+        <div className="providers-section" id="compare" ref={compareSectionRef}>
           <div className="section-heading">
-            <h2>추천 장례업체</h2>
+            <div>
+              <h2>{resultText}</h2>
+              {hasCompared ? (
+                <p className="filter-summary">
+                  {[filters.region, filters.petType, filters.weightRange]
+                    .filter(Boolean)
+                    .join(' · ') || '전체 조건'}
+                </p>
+              ) : null}
+            </div>
             <a href="#more">더보기</a>
           </div>
-          <div className="provider-grid">
-            {providers.map((provider, index) => (
-              <article className="provider-card" key={provider.name}>
-                <div className={`image-placeholder provider-image tone-${index + 1}`}>
-                  <button type="button" aria-label={`${provider.name} 관심 업체`}>
-                    <Heart size={19} />
-                  </button>
-                </div>
-                <div className="provider-body">
-                  <div className="provider-title">
-                    <h3>{provider.name}</h3>
-                    {provider.badge ? <span>{provider.badge}</span> : null}
+          {visibleProviders.length > 0 ? (
+            <div className="provider-grid">
+              {visibleProviders.map((provider) => (
+                <article className="provider-card" key={provider.id}>
+                  <div
+                    className={`image-placeholder provider-image tone-${provider.imageTone}`}
+                  >
+                    <button
+                      type="button"
+                      aria-label={`${provider.name} 관심 업체`}
+                    >
+                      <Heart size={19} />
+                    </button>
                   </div>
-                  <p className="meta">
-                    <MapPin size={14} />
-                    {provider.area}
-                  </p>
-                  <p className="rating">
-                    <Star size={15} fill="currentColor" />
-                    <strong>{provider.rating}</strong>
-                    <span>({provider.reviews})</span>
-                  </p>
-                  <p className="price">{provider.price}</p>
-                </div>
-              </article>
-            ))}
-          </div>
+                  <div className="provider-body">
+                    <div className="provider-title">
+                      <h3>{provider.name}</h3>
+                      {provider.badge ? <span>{provider.badge}</span> : null}
+                    </div>
+                    <p className="meta">
+                      <MapPin size={14} />
+                      {provider.region} {provider.district}
+                    </p>
+                    <p className="rating">
+                      <Star size={15} fill="currentColor" />
+                      <strong>{provider.rating.toFixed(1)}</strong>
+                      <span>({provider.reviewCount})</span>
+                    </p>
+                    <p className="price">{provider.priceLabel}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          ) : (
+            <div className="empty-state">
+              조건에 맞는 업체가 아직 없어요. 조건을 조금 넓혀서 다시 비교해보세요.
+            </div>
+          )}
         </div>
 
         <aside className="stories-section" id="community">
@@ -305,8 +407,16 @@ function App() {
       <section className="region-bar" aria-label="지역별 찾기">
         <h2>지역별 찾기</h2>
         <div>
-          {regions.map((region) => (
-            <button type="button" key={region}>
+          {regionOptions.map((region) => (
+            <button
+              type="button"
+              key={region}
+              onClick={() => {
+                setFilters((current) => ({ ...current, region }))
+                setAppliedFilters((current) => ({ ...current, region }))
+                setHasCompared(true)
+              }}
+            >
               {region}
             </button>
           ))}
@@ -327,6 +437,14 @@ function App() {
             <br />
             펫로그가 함께합니다.
           </p>
+          <div className="social-icons" aria-label="소셜 링크">
+            <a href="#instagram" aria-label="인스타그램">
+              ig
+            </a>
+            <a href="#facebook" aria-label="페이스북">
+              f
+            </a>
+          </div>
         </div>
         <div className="footer-column">
           <h2>서비스</h2>
