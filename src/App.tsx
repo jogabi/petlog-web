@@ -1,11 +1,11 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import {
-  BadgeDollarSign,
   Bell,
   BookOpen,
-  Building2,
   Calculator,
+  CheckSquare,
   ChevronDown,
+  CircleDollarSign,
   Heart,
   HeartHandshake,
   LockKeyhole,
@@ -14,6 +14,7 @@ import {
   Navigation,
   PawPrint,
   Search,
+  ShieldCheck,
   Star,
 } from 'lucide-react'
 import {
@@ -32,43 +33,19 @@ import './App.css'
 
 const features = [
   {
-    icon: Building2,
-    title: '전국 업체 비교',
-    description: '지역별 서비스별 비교하고 선택하세요',
+    icon: CircleDollarSign,
+    title: '실제 비용 비교',
+    description: '업체별 실제 비용을 한눈에 비교해보세요',
   },
   {
-    icon: BadgeDollarSign,
-    title: '실시간 비용 비교',
-    description: '투명한 가격 정보로 합리적인 선택을 도와드려요',
+    icon: ShieldCheck,
+    title: '투명한 정보 제공',
+    description: '서비스와 후기를 기반으로 정확한 정보를 제공합니다',
   },
   {
     icon: Heart,
-    title: '추모 커뮤니티',
-    description: '우리 아이를 기억하고 이야기를 나눌 수 있어요',
-  },
-]
-
-const stories = [
-  {
-    title: '우리 몽이가 떠난 지 30일',
-    body: '아직도 실감이 나지 않지만, 여기에서 이야기하니 조금은 마음이 놓여요.',
-    likes: 124,
-    comments: 36,
-    time: '2시간 전',
-  },
-  {
-    title: '21그램 이용 후기',
-    body: '친절하게 잘 안내해주셔서 감사했어요. 마지막까지 편안하게 보내줄 수 있었어요.',
-    likes: 89,
-    comments: 24,
-    time: '5시간 전',
-  },
-  {
-    title: '개별 화장 비용 문의드려요',
-    body: '5kg 강아지 기준으로 비용이 어떻게 될까요? 경기 지역 위주로 알아보고 있어요.',
-    likes: 23,
-    comments: 15,
-    time: '1일 전',
+    title: '후회 없는 선택',
+    description: '우리 아이에게 가장 좋은 선택을 할 수 있도록 도와드려요',
   },
 ]
 
@@ -90,8 +67,55 @@ const quickLinks = [
   },
   {
     icon: Navigation,
-    title: '찾아오시는 길',
-    description: '업체별 위치와 교통편을 한눈에 확인하세요',
+    title: '업체 선택 가이드',
+    description: '후회 없는 선택을 위한 체크포인트를 확인하세요',
+  },
+]
+
+const costCases = [
+  {
+    pet: '강아지 · 5kg',
+    title: '개별 화장',
+    total: '총 비용 42만원',
+    details: ['기본 화장 35만원', '픽업 5만원', '추모 용품 2만원'],
+    tone: 5,
+  },
+  {
+    pet: '고양이 · 4kg',
+    title: '개별 화장',
+    total: '총 비용 38만원',
+    details: ['기본 화장 30만원', '픽업 5만원', '추모 용품 3만원'],
+    tone: 6,
+  },
+  {
+    pet: '강아지 · 10kg',
+    title: '개별 화장',
+    total: '총 비용 58만원',
+    details: ['기본 화장 50만원', '픽업 5만원', '추모 용품 3만원'],
+    tone: 7,
+  },
+]
+
+const popularGuides = [
+  {
+    title: '강아지 화장 비용 총정리 (2026년 기준)',
+    description: '지역별 평균 비용과 업체별 비용 비교',
+    tone: 1,
+  },
+  {
+    title: '반려동물 장례 절차 처음부터 마무리까지',
+    description: '처음이라도 이해하기 쉽게 단계별로 알려드려요',
+    tone: 3,
+  },
+  {
+    title: '개별화장 vs 단체화장 어떤 선택이 맞을까요?',
+    description: '차이점과 장단점, 후기까지 한눈에 비교',
+    tone: 6,
+  },
+  {
+    title: '아이를 추모하는 다양한 방법',
+    description: '일상 속에서 아이를 기억하는 방법들',
+    tone: 4,
   },
 ]
 
@@ -105,7 +129,6 @@ const defaultFilters: Required<ProviderFilters> = {
 
 function App() {
   const compareSectionRef = useRef<HTMLDivElement>(null)
-  const searchPanelRef = useRef<HTMLElement>(null)
   const [filters, setFilters] = useState(defaultFilters)
   const [appliedFilters, setAppliedFilters] = useState(defaultFilters)
   const [openDropdown, setOpenDropdown] = useState<OpenDropdown>(null)
@@ -127,10 +150,14 @@ function App() {
     const closeDropdownOnOutsideClick = (event: PointerEvent) => {
       const target = event.target
 
-      if (
-        target instanceof Node &&
-        searchPanelRef.current?.contains(target)
-      ) {
+      if (!(target instanceof Element)) {
+        setOpenDropdown(null)
+        return
+      }
+
+      const activeSelect = target.closest('[data-dropdown]')
+
+      if (activeSelect?.getAttribute('data-dropdown') === openDropdown) {
         return
       }
 
@@ -175,8 +202,8 @@ function App() {
           <a href="#compare">업체 비교</a>
           <a href="#funeral">장례 정보</a>
           <a href="#memory">추모 공간</a>
-          <a href="#community">커뮤니티</a>
           <a href="#guide">이용 가이드</a>
+          <a href="#community">커뮤니티</a>
         </nav>
         <div className="header-actions">
           <button className="icon-button" type="button" aria-label="검색">
@@ -195,7 +222,9 @@ function App() {
         <div className="hero-content">
           <h1>소중한 우리 아이의 마지막 순간, 펫로그가 함께합니다</h1>
           <p className="lead">
-            전국 반려동물 장례업체 비교부터 추모 공간까지 한 곳에서.
+            투명한 정보와 비교로
+            <br />
+            후회 없는 선택을 도와드릴게요.
           </p>
           <div className="feature-row">
             {features.map(({ icon: Icon, title, description }) => (
@@ -213,11 +242,7 @@ function App() {
         </div>
       </section>
 
-      <section
-        className="search-panel"
-        aria-label="장례 서비스 검색"
-        ref={searchPanelRef}
-      >
+      <section className="search-panel" aria-label="장례 서비스 검색">
         <div className="search-copy">
           우리 아이에게
           <br />
@@ -225,7 +250,7 @@ function App() {
           <br />
           찾아보세요
         </div>
-        <div className="select-field">
+        <div className="select-field" data-dropdown="region">
           <span>지역 선택</span>
           <button
             type="button"
@@ -257,7 +282,7 @@ function App() {
             </div>
           ) : null}
         </div>
-        <div className="select-field">
+        <div className="select-field" data-dropdown="petType">
           <span>아이 종류</span>
           <button
             type="button"
@@ -289,7 +314,7 @@ function App() {
             </div>
           ) : null}
         </div>
-        <div className="select-field">
+        <div className="select-field" data-dropdown="weight">
           <span>아이 체중</span>
           <button
             type="button"
@@ -331,8 +356,7 @@ function App() {
         </button>
       </section>
 
-      <section className="main-grid">
-        <div className="providers-section" id="compare" ref={compareSectionRef}>
+      <section className="providers-section" id="compare" ref={compareSectionRef}>
           <div className="section-heading">
             <div>
               <h2>{resultText}</h2>
@@ -344,7 +368,7 @@ function App() {
                 </p>
               ) : null}
             </div>
-            <a href="#more">더보기</a>
+            <a href="#more">전체 업체 보기</a>
           </div>
           {visibleProviders.length > 0 ? (
             <div className="provider-grid">
@@ -375,6 +399,31 @@ function App() {
                       <span>({provider.reviewCount})</span>
                     </p>
                     <p className="price">{provider.priceLabel}</p>
+                    <div className="provider-tags">
+                      {provider.id === '21gram' ? (
+                        <>
+                          <span>개별 화장</span>
+                          <span>픽업 가능</span>
+                          <span>추모관</span>
+                        </>
+                      ) : provider.id === 'pet-forest' ? (
+                        <>
+                          <span>개별 화장</span>
+                          <span>수목장</span>
+                          <span>픽업 가능</span>
+                        </>
+                      ) : provider.id === 'pet-for-you' ? (
+                        <>
+                          <span>개별 화장</span>
+                          <span>유골 보관</span>
+                        </>
+                      ) : (
+                        <>
+                          <span>개별 화장</span>
+                          <span>추모실 보유</span>
+                        </>
+                      )}
+                    </div>
                   </div>
                 </article>
               ))}
@@ -384,36 +433,6 @@ function App() {
               조건에 맞는 업체가 아직 없어요. 조건을 조금 넓혀서 다시 비교해보세요.
             </div>
           )}
-        </div>
-
-        <aside className="stories-section" id="community">
-          <div className="section-heading">
-            <h2>따뜻한 추모 이야기</h2>
-            <a href="#stories">더보기</a>
-          </div>
-          <div className="story-list">
-            {stories.map((story, index) => (
-              <article className="story-item" key={story.title}>
-                <div className={`image-placeholder story-thumb tone-${index + 5}`} />
-                <div>
-                  <h3>{story.title}</h3>
-                  <p>{story.body}</p>
-                  <div className="story-meta">
-                    <span>
-                      <Heart size={13} />
-                      {story.likes}
-                    </span>
-                    <span>
-                      <MessageCircle size={13} />
-                      {story.comments}
-                    </span>
-                    <time>{story.time}</time>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-        </aside>
       </section>
 
       <section className="quick-links" id="guide">
@@ -430,21 +449,59 @@ function App() {
         ))}
       </section>
 
-      <section className="region-bar" aria-label="지역별 찾기">
-        <h2>지역별 찾기</h2>
+      <section className="cost-cases" id="cost-cases">
+        <div className="section-heading">
+          <h2>실제 비용 사례</h2>
+          <a href="#cost-cases-more">더 많은 사례 보기</a>
+        </div>
+        <div className="cost-case-grid">
+          {costCases.map((item) => (
+            <article className="cost-card" key={item.pet}>
+              <div className="cost-copy">
+                <span>{item.pet}</span>
+                <h3>{item.title}</h3>
+                <strong>{item.total}</strong>
+                <ul>
+                  {item.details.map((detail) => (
+                    <li key={detail}>{detail}</li>
+                  ))}
+                </ul>
+              </div>
+              <div className={`image-placeholder cost-image tone-${item.tone}`} />
+            </article>
+          ))}
+          <article className="checklist-card">
+            <CheckSquare size={34} />
+            <h3>업체 선택 체크리스트</h3>
+            <p>좋은 장례업체를 선택하는 핵심 체크포인트 7가지</p>
+            <button type="button">확인하기</button>
+          </article>
+        </div>
+      </section>
+
+      <section className="guide-cta">
+        <div className="image-placeholder cta-image tone-3" />
         <div>
-          {regionOptions.map((region) => (
-            <button
-              type="button"
-              key={region}
-              onClick={() => {
-                setFilters((current) => ({ ...current, region }))
-                setAppliedFilters((current) => ({ ...current, region }))
-                setHasCompared(true)
-              }}
-            >
-              {region}
-            </button>
+          <h2>처음 이용하시나요?</h2>
+          <p>장례 준비부터 추모까지, 모든 과정을 이용 가이드에서 확인해보세요.</p>
+        </div>
+        <a href="#guide">이용 가이드 보기</a>
+      </section>
+
+      <section className="popular-guides" id="popular-guides">
+        <div className="section-heading">
+          <h2>인기 가이드</h2>
+          <a href="#popular-guides-more">더보기</a>
+        </div>
+        <div className="popular-guide-grid">
+          {popularGuides.map((guide) => (
+            <article className="popular-guide-card" key={guide.title}>
+              <div className={`image-placeholder popular-guide-image tone-${guide.tone}`} />
+              <div>
+                <h3>{guide.title}</h3>
+                <p>{guide.description}</p>
+              </div>
+            </article>
           ))}
         </div>
       </section>
