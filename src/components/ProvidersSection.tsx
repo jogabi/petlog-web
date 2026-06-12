@@ -49,6 +49,7 @@ export function ProvidersSection({
               <div
                 className={`image-placeholder provider-image tone-${provider.imageTone}`}
               >
+                <img src={provider.imageSrc} alt={`${provider.name} 장례식장 이미지`} />
                 <button type="button" aria-label={`${provider.name} 관심 업체`}>
                   <Heart size={19} />
                 </button>

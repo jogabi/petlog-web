@@ -1,3 +1,5 @@
+import { visibleProviderImages } from './providerImages'
+
 export type PetType = '강아지' | '고양이' | '기타'
 
 export type WeightRange = '5kg 미만' | '5-10kg' | '10-20kg' | '20kg 이상'
@@ -15,6 +17,7 @@ export type FuneralProvider = {
   supportedPetTypes: PetType[]
   maxWeightKg: number
   imageTone: number
+  imageSrc: string
 }
 
 export const regionOptions = [
@@ -57,6 +60,7 @@ export const funeralProviders: FuneralProvider[] = [
     supportedPetTypes: ['강아지', '고양이'],
     maxWeightKg: 20,
     imageTone: 1,
+    imageSrc: visibleProviderImages[0],
   },
   {
     id: 'pet-forest',
@@ -70,6 +74,7 @@ export const funeralProviders: FuneralProvider[] = [
     supportedPetTypes: ['강아지', '고양이', '기타'],
     maxWeightKg: 30,
     imageTone: 2,
+    imageSrc: visibleProviderImages[1],
   },
   {
     id: 'pet-for-you',
@@ -83,6 +88,7 @@ export const funeralProviders: FuneralProvider[] = [
     supportedPetTypes: ['강아지', '고양이'],
     maxWeightKg: 15,
     imageTone: 3,
+    imageSrc: visibleProviderImages[2],
   },
   {
     id: 'rainbow-angel',
@@ -96,6 +102,7 @@ export const funeralProviders: FuneralProvider[] = [
     supportedPetTypes: ['강아지', '고양이', '기타'],
     maxWeightKg: 25,
     imageTone: 4,
+    imageSrc: visibleProviderImages[3],
   },
 ]
 
