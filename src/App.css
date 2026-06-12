@@ -702,9 +702,12 @@ button {
   );
 }
 
-.cost-bg-1 .cost-copy > span {
+.cost-copy > span {
   display: inline-flex;
   padding: 5px 9px;
+}
+
+.cost-bg-1 .cost-copy > span {
   color: var(--green-dark);
   background: #edf6e5;
 }
