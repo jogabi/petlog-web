@@ -815,7 +815,7 @@ button {
 .guide-cta {
   position: relative;
   display: grid;
-  grid-template-columns: 170px 1fr auto;
+  grid-template-columns: 210px 1fr auto;
   gap: 22px;
   align-items: center;
   min-height: 96px;
@@ -831,10 +831,10 @@ button {
 }
 
 .cta-image {
-  width: 170px;
+  width: 210px;
   height: 96px;
   object-fit: cover;
-  object-position: 49% 56%;
+  object-position: 50% 50%;
   align-self: stretch;
   -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 72%, transparent 100%);
   mask-image: linear-gradient(90deg, #000 0%, #000 72%, transparent 100%);
@@ -864,11 +864,11 @@ button {
   gap: 9px;
   min-width: 212px;
   height: 54px;
-  border: 1px solid rgba(255, 255, 255, 0.42);
+  border: 1px solid rgba(255, 255, 255, 0.82);
   border-radius: 10px;
   color: var(--green-dark);
-  background: rgba(255, 252, 248, 0.86);
-  box-shadow: 0 10px 20px rgba(42, 58, 24, 0.16);
+  background: rgba(255, 253, 248, 0.96);
+  box-shadow: 0 10px 20px rgba(42, 58, 24, 0.1);
   font-size: 17px;
 }
 
