@@ -16,7 +16,6 @@ export function Header() {
         <a href="#popular-guides">정보 이야기</a>
         <a href="#memory">추모 공간</a>
         <a href="#community">커뮤니티</a>
-        <a href="#guide">이용 안내</a>
       </nav>
       <div className="header-actions">
         <button className="icon-button" type="button" aria-label="검색">

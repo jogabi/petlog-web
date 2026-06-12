@@ -15,8 +15,8 @@ const popularGuides = [
     tone: 6,
   },
   {
-    title: '아이를 추모하는 다양한 방법',
-    description: '일상 속에서 아이를 기억하는 방법들',
+    title: '반려동물을 추모하는 다양한 방법',
+    description: '일상 속에서 반려동물을 기억하는 방법들',
     tone: 4,
   },
 ]

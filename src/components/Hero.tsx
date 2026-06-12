@@ -14,7 +14,7 @@ const features = [
   {
     icon: Heart,
     title: '후회 없는 선택',
-    description: '우리 아이에게 가장 좋은 선택을 할 수 있도록 도와드려요',
+    description: '우리 반려동물에게 가장 좋은 선택을 할 수 있도록 도와드려요',
   },
 ]
 
@@ -23,7 +23,7 @@ export function Hero() {
     <section className="hero-section">
       <div className="hero-content">
         <h1>
-          소중한 우리 아이의 마지막 순간,
+          소중한 우리 반려동물의 마지막 순간,
           <br />
           <span className="hero-accent">펫로그</span>가 함께합니다
         </h1>

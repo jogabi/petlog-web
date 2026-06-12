@@ -9,7 +9,7 @@ const quickLinks = [
   {
     icon: Calculator,
     title: '비용 가이드',
-    description: '아이 체중별 예상 비용을 확인해보세요',
+    description: '반려동물 체중별 예상 비용을 확인해보세요',
   },
   {
     icon: MessageCircle,

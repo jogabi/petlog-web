@@ -53,7 +53,7 @@ export function CostCases() {
               <Heart size={15} aria-hidden="true" />
             </span>
             <h3>
-              우리 아이를 기억하는
+              우리 반려동물을 기억하는
               <br />
               추모 공간
             </h3>

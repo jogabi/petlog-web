@@ -40,7 +40,7 @@ export function SearchPanel({
   return (
     <section className="search-panel" aria-label="장례 서비스 검색">
       <div className="search-copy">
-        우리 아이에게
+        우리 반려동물에게
         <br />
         맞는 장례 서비스를
         <br />
