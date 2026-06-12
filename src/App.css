@@ -825,7 +825,7 @@ button {
   align-items: center;
   min-height: 96px;
   margin-top: 32px;
-  padding: 0 54px 0 225px;
+  padding: 0 54px 0 185px;
   overflow: hidden;
   border: 1px solid rgba(111, 135, 62, 0.42);
   border-radius: 8px;
@@ -1009,7 +1009,7 @@ button {
 
   .guide-cta {
     min-height: 120px;
-    padding: 22px 22px 22px 135px;
+    padding: 22px 22px 22px 112px;
   }
 
   .guide-cta::before {
