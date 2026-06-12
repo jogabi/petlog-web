@@ -25,7 +25,7 @@ export function Hero() {
         <h1>
           소중한 우리 아이의 마지막 순간,
           <br />
-          펫로그가 함께합니다
+          <span className="hero-accent">펫로그</span>가 함께합니다
         </h1>
         <p className="lead">
           투명한 정보와 비교로

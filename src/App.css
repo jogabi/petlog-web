@@ -3,6 +3,9 @@
   --page-gutter: 56px;
   --brown: #4b2314;
   --brown-2: #6c351d;
+  --green: #637f32;
+  --green-dark: #4d6628;
+  --green-soft: #eef4df;
   --line: #ecdcd0;
   --panel: rgba(255, 255, 255, 0.82);
   --muted: #5a4940;
@@ -45,7 +48,7 @@ button {
 }
 
 .brand:focus-visible {
-  outline: 2px solid rgba(111, 53, 27, 0.42);
+  outline: 2px solid rgba(99, 127, 50, 0.42);
   outline-offset: 4px;
 }
 
@@ -118,7 +121,7 @@ button {
 
 .hero-section {
   position: relative;
-  min-height: 330px;
+  min-height: 355px;
   padding-top: 44px;
   overflow: hidden;
 }
@@ -130,8 +133,8 @@ button {
   content: '';
   background-image: url('./assets/banner.png');
   background-repeat: no-repeat;
-  background-position: right 6px top 4px;
-  background-size: auto 318px;
+  background-position: right -20px top 0;
+  background-size: auto 355px;
 }
 
 .hero-section::after {
@@ -163,8 +166,12 @@ button {
   color: var(--brown);
   font-size: 36px;
   line-height: 1.34;
-  font-weight: 900;
+  font-weight: 700;
   letter-spacing: 0;
+}
+
+.hero-accent {
+  color: var(--green-dark);
 }
 
 .lead {
@@ -172,7 +179,7 @@ button {
   color: #251914;
   font-size: 18px;
   line-height: 1.58;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .feature-row {
@@ -210,7 +217,7 @@ button {
   color: #16110f;
   font-size: 15px;
   line-height: 1.35;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .feature-item p,
@@ -219,7 +226,7 @@ button {
   color: #3f332d;
   font-size: 12px;
   line-height: 1.45;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .search-panel,
@@ -255,7 +262,7 @@ button {
   color: #17110f;
   font-size: 17px;
   line-height: 1.55;
-  font-weight: 900;
+  font-weight: 600;
 }
 
 .select-field {
@@ -267,7 +274,7 @@ button {
 .select-field > span {
   color: #17110f;
   font-size: 15px;
-  font-weight: 900;
+  font-weight: 600;
 }
 
 .select-field button {
@@ -283,13 +290,13 @@ button {
   color: #6f4b3e;
   background: #fffdfb;
   font-size: 14px;
-  font-weight: 800;
+  font-weight: 600;
   text-align: left;
 }
 
 .select-field > button[aria-expanded='true'] {
-  border-color: #a94d22;
-  box-shadow: 0 0 0 3px rgba(169, 77, 34, 0.1);
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(99, 127, 50, 0.12);
 }
 
 .select-field svg {
@@ -321,7 +328,7 @@ button {
   background: transparent;
   color: #432417;
   font-size: 15px;
-  font-weight: 900;
+  font-weight: 600;
   text-align: left;
 }
 
@@ -334,7 +341,7 @@ button {
   border: 0;
   border-radius: 7px;
   color: #fffaf5;
-  background: linear-gradient(180deg, #7d4b31, #5b311d);
+  background: linear-gradient(180deg, #789144, var(--green-dark));
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28);
   font-size: 16px;
   font-weight: 900;
@@ -356,7 +363,7 @@ button {
 }
 
 .section-heading a {
-  color: #6b2f18;
+  color: var(--green-dark);
   font-size: 15px;
   font-weight: 900;
   text-decoration: none;
@@ -413,7 +420,7 @@ button {
 }
 
 .provider-image {
-  aspect-ratio: 386 / 272;
+  aspect-ratio: 492 / 279;
   background: #f3e8dd;
 }
 
@@ -529,7 +536,7 @@ button {
   margin: 0;
   color: #15110f;
   font-size: 18px;
-  font-weight: 900;
+  font-weight: 800;
 }
 
 .provider-title span,
@@ -539,11 +546,13 @@ button {
   color: #7c4b31;
   background: #f2e3d4;
   font-size: 14px;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .provider-title span {
   padding: 4px 9px;
+  color: var(--green-dark);
+  background: var(--green-soft);
 }
 
 .meta,
@@ -555,11 +564,12 @@ button {
   margin: 8px 0 0;
   color: #5c4a40;
   font-size: 15px;
-  font-weight: 800;
+  font-weight: 600;
 }
 
 .rating {
   color: #211712;
+  font-weight: 700;
 }
 
 .rating svg {
@@ -568,7 +578,7 @@ button {
 
 .price {
   color: #24170f;
-  font-weight: 900;
+  font-weight: 800;
 }
 
 .provider-tags {
@@ -701,7 +711,7 @@ button {
   margin: 12px 0 0;
   color: #1a120e;
   font-size: 17px;
-  font-weight: 900;
+  font-weight: 800;
 }
 
 .cost-copy strong {
@@ -709,7 +719,7 @@ button {
   margin-top: 4px;
   color: #2a1a12;
   font-size: 17px;
-  font-weight: 900;
+  font-weight: 800;
   line-height: 1.35;
 }
 
@@ -730,7 +740,7 @@ button {
   justify-items: center;
   min-height: 140px;
   padding: 20px;
-  color: #7a3f1f;
+  color: var(--green-dark);
   text-align: center;
 }
 
@@ -738,7 +748,7 @@ button {
   margin: 14px 0 0;
   color: #1a120e;
   font-size: 17px;
-  font-weight: 900;
+  font-weight: 800;
 }
 
 .checklist-card p {
@@ -759,7 +769,7 @@ button {
   border: 0;
   border-radius: 7px;
   color: #fffaf5;
-  background: #673818;
+  background: linear-gradient(180deg, #789144, var(--green-dark));
   font-size: 15px;
   font-weight: 900;
   text-decoration: none;
@@ -791,7 +801,7 @@ button {
   color: #1a120e;
   font-size: 14px;
   line-height: 1.35;
-  font-weight: 900;
+  font-weight: 800;
 }
 
 .popular-guide-card p {
@@ -812,12 +822,12 @@ button {
   margin-top: 32px;
   padding: 0 54px 0 0;
   overflow: hidden;
-  border: 1px solid rgba(226, 210, 198, 0.92);
+  border: 1px solid rgba(111, 135, 62, 0.42);
   border-radius: 8px;
   background:
-    linear-gradient(90deg, #fbf1e7 0%, #fff8f1 19%, #fffdf9 54%, #fffaf4 100%),
-    #fffaf5;
-  box-shadow: 0 10px 24px rgba(112, 73, 47, 0.035);
+    linear-gradient(90deg, rgba(77, 102, 40, 0.94) 0%, rgba(99, 127, 50, 0.94) 100%),
+    var(--green-dark);
+  box-shadow: 0 14px 30px rgba(71, 91, 38, 0.12);
 }
 
 .cta-image {
@@ -836,7 +846,7 @@ button {
 
 .guide-cta h2 {
   margin: 0;
-  color: #1a120e;
+  color: #fffdf8;
   font-size: 18px;
   line-height: 1.35;
   font-weight: 900;
@@ -844,7 +854,7 @@ button {
 
 .guide-cta p {
   margin: 7px 0 0;
-  color: #5c4a40;
+  color: rgba(255, 253, 248, 0.88);
   font-size: 16px;
   line-height: 1.45;
   font-weight: 700;
@@ -854,11 +864,11 @@ button {
   gap: 9px;
   min-width: 212px;
   height: 54px;
-  border: 1px solid #d8c3b1;
+  border: 1px solid rgba(255, 255, 255, 0.42);
   border-radius: 10px;
-  color: #5a2c17;
+  color: var(--green-dark);
   background: rgba(255, 252, 248, 0.86);
-  box-shadow: 0 8px 18px rgba(116, 79, 54, 0.045);
+  box-shadow: 0 10px 20px rgba(42, 58, 24, 0.16);
   font-size: 17px;
 }
 
@@ -943,6 +953,11 @@ button {
   .hero-section {
     min-height: 520px;
     padding-top: 330px;
+  }
+
+  .hero-section::before {
+    background-position: center top;
+    background-size: auto 355px;
   }
 
   .hero-section::after {
