@@ -13,9 +13,10 @@ export function Header() {
       </a>
       <nav className="nav" aria-label="주요 메뉴">
         <a href="#compare">업체 비교</a>
-        <a href="#popular-guides">정보 이야기</a>
+        <a href="#popular-guides">함께 읽는 글</a>
         <a href="#memory">추모 공간</a>
         <a href="#community">커뮤니티</a>
+        <a href="#customer-center">고객센터</a>
       </nav>
       <div className="header-actions">
         <button className="icon-button" type="button" aria-label="검색">

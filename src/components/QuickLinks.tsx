@@ -1,4 +1,4 @@
-import { BookOpen, Calculator, MessageCircle, Navigation } from 'lucide-react'
+import { BookOpen, Calculator, Navigation } from 'lucide-react'
 
 const quickLinks = [
   {
@@ -10,11 +10,6 @@ const quickLinks = [
     icon: Calculator,
     title: '비용 가이드',
     description: '반려동물 체중별 예상 비용을 확인해보세요',
-  },
-  {
-    icon: MessageCircle,
-    title: '자주 묻는 질문',
-    description: '많이 궁금해하시는 질문들을 모아놨어요',
   },
   {
     icon: Navigation,

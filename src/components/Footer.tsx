@@ -29,14 +29,13 @@ export function Footer() {
         <div className="footer-column">
           <h2>서비스</h2>
           <a href="#compare">업체 비교</a>
-          <a href="#popular-guides">정보 이야기</a>
+          <a href="#popular-guides">함께 읽는 글</a>
           <a href="#memory">추모 공간</a>
           <a href="#community">커뮤니티</a>
-          <a href="#guide">이용 안내</a>
+          <a href="#customer-center">고객센터</a>
         </div>
-        <div className="footer-column">
-          <h2>고객지원</h2>
-          <a href="#faq">자주 묻는 질문</a>
+        <div className="footer-column" id="customer-center">
+          <h2>고객센터</h2>
           <a href="#notice">공지사항</a>
           <a href="#terms">이용약관</a>
           <a href="#privacy">개인정보처리방침</a>
