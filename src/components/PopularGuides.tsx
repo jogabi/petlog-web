@@ -25,7 +25,7 @@ export function PopularGuides() {
   return (
     <section className="popular-guides" id="popular-guides">
       <div className="section-heading">
-        <h2>인기 가이드</h2>
+        <h2>정보 이야기</h2>
         <a href="#popular-guides-more">더보기</a>
       </div>
       <div className="popular-guide-grid">

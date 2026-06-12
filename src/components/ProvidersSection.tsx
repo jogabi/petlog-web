@@ -1,4 +1,4 @@
-import { Heart, MapPin, Star } from 'lucide-react'
+import { Heart, Image as ImageIcon, MapPin, Star } from 'lucide-react'
 import type { RefObject } from 'react'
 import type { FuneralProvider } from '../data/providers'
 import type { ProviderFilters } from '../services/providerService'
@@ -50,6 +50,10 @@ export function ProvidersSection({
                 className={`image-placeholder provider-image tone-${provider.imageTone}`}
               >
                 <img src={provider.imageSrc} alt={`${provider.name} 장례식장 이미지`} />
+                <div className="provider-image-status" aria-hidden="true">
+                  <ImageIcon size={30} strokeWidth={1.8} />
+                  <span>대표 이미지 준비중</span>
+                </div>
                 <button type="button" aria-label={`${provider.name} 관심 업체`}>
                   <Heart size={19} />
                 </button>

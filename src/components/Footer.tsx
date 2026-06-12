@@ -1,4 +1,4 @@
-import { HeartHandshake } from 'lucide-react'
+import { BrandLogo } from './BrandLogo'
 
 export function Footer() {
   return (
@@ -6,7 +6,7 @@ export function Footer() {
       <footer className="footer">
         <div className="footer-brand">
           <a className="brand" href="/" aria-label="펫로그 홈">
-            <HeartHandshake className="brand-mark" aria-hidden="true" />
+            <BrandLogo />
             <span>
               <strong>펫로그</strong>
               <small>PetLog</small>
@@ -29,9 +29,10 @@ export function Footer() {
         <div className="footer-column">
           <h2>서비스</h2>
           <a href="#compare">업체 비교</a>
-          <a href="#funeral">장례 정보</a>
+          <a href="#popular-guides">정보 이야기</a>
           <a href="#memory">추모 공간</a>
-          <a href="#guide">이용 가이드</a>
+          <a href="#community">커뮤니티</a>
+          <a href="#guide">이용 안내</a>
         </div>
         <div className="footer-column">
           <h2>고객지원</h2>
@@ -41,7 +42,7 @@ export function Footer() {
           <a href="#privacy">개인정보처리방침</a>
         </div>
       </footer>
-      <p className="copyright">© 2024 PetLog. All rights reserved.</p>
+      <p className="copyright">© 2026 PetLog. All rights reserved.</p>
     </>
   )
 }

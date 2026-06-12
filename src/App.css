@@ -35,15 +35,24 @@ button {
 
 .brand {
   display: inline-flex;
+  justify-self: start;
   align-items: center;
   gap: 9px;
+  width: max-content;
+  border-radius: 8px;
   color: #6f351b;
   text-decoration: none;
 }
 
+.brand:focus-visible {
+  outline: 2px solid rgba(111, 53, 27, 0.42);
+  outline-offset: 4px;
+}
+
 .brand-mark {
-  width: 34px;
-  height: 34px;
+  width: 46px;
+  height: 46px;
+  object-fit: contain;
   stroke-width: 1.7;
 }
 
@@ -418,11 +427,43 @@ button {
   object-fit: cover;
 }
 
+.provider-image::after {
+  position: absolute;
+  inset: 0;
+  content: '';
+  background: rgba(19, 17, 15, 0.44);
+}
+
+.provider-image-status {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 10px;
+  color: #fff;
+  opacity: 0.82;
+  text-align: center;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.42);
+}
+
+.provider-image-status svg {
+  width: 33px;
+  height: 33px;
+}
+
+.provider-image-status span {
+  font-size: 15px;
+  line-height: 1.25;
+  font-weight: 700;
+}
+
 .provider-image button {
   position: absolute;
   top: 10px;
   right: 10px;
-  z-index: 1;
+  z-index: 2;
   display: grid;
   width: 29px;
   height: 29px;
@@ -599,6 +640,7 @@ button {
 }
 
 .popular-guides {
+  margin-top: 72px;
   margin-bottom: 76px;
 }
 
@@ -872,9 +914,9 @@ button {
 }
 
 .copyright {
-  margin: 18px 0 0;
-  color: #4c4540;
-  font-size: 14px;
+  margin: 44px 0 28px;
+  color: #7a7069;
+  font-size: 13px;
   text-align: center;
 }
 

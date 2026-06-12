@@ -1,10 +1,11 @@
-import { Bell, HeartHandshake, Search } from 'lucide-react'
+import { Bell, Search } from 'lucide-react'
+import { BrandLogo } from './BrandLogo'
 
 export function Header() {
   return (
     <header className="topbar">
       <a className="brand" href="/" aria-label="펫로그 홈">
-        <HeartHandshake className="brand-mark" aria-hidden="true" />
+        <BrandLogo />
         <span>
           <strong>펫로그</strong>
           <small>PetLog</small>
@@ -12,10 +13,10 @@ export function Header() {
       </a>
       <nav className="nav" aria-label="주요 메뉴">
         <a href="#compare">업체 비교</a>
-        <a href="#funeral">장례 정보</a>
+        <a href="#popular-guides">정보 이야기</a>
         <a href="#memory">추모 공간</a>
-        <a href="#guide">이용 가이드</a>
         <a href="#community">커뮤니티</a>
+        <a href="#guide">이용 안내</a>
       </nav>
       <div className="header-actions">
         <button className="icon-button" type="button" aria-label="검색">
