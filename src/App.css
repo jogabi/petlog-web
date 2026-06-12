@@ -815,33 +815,44 @@ button {
 .guide-cta {
   position: relative;
   display: grid;
-  grid-template-columns: 210px 1fr auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   gap: 22px;
   align-items: center;
   min-height: 96px;
   margin-top: 32px;
-  padding: 0 54px 0 0;
+  padding: 0 54px 0 260px;
   overflow: hidden;
   border: 1px solid rgba(111, 135, 62, 0.42);
   border-radius: 8px;
   background:
-    linear-gradient(90deg, rgba(77, 102, 40, 0.94) 0%, rgba(99, 127, 50, 0.94) 100%),
+    linear-gradient(90deg, #566934 0%, #536832 42%, #526b31 100%),
     var(--green-dark);
   box-shadow: 0 14px 30px rgba(71, 91, 38, 0.12);
 }
 
-.cta-image {
-  width: 210px;
-  height: 96px;
-  object-fit: cover;
-  object-position: 50% 50%;
-  align-self: stretch;
-  -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 72%, transparent 100%);
-  mask-image: linear-gradient(90deg, #000 0%, #000 72%, transparent 100%);
+.guide-cta::before {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 310px;
+  content: '';
+  background:
+    linear-gradient(90deg, rgba(82, 107, 49, 0) 0%, rgba(82, 107, 49, 0.08) 58%, #536832 100%),
+    url('./assets/guide-cta-flower.png');
+  background-repeat: no-repeat;
+  background-position: left 22px bottom -8px;
+  background-size: 160px auto;
+  pointer-events: none;
 }
 
 .guide-cta-copy {
+  position: relative;
+  z-index: 1;
   min-width: 0;
+}
+
+.guide-cta a {
+  position: relative;
+  z-index: 1;
 }
 
 .guide-cta h2 {
@@ -988,8 +999,9 @@ button {
     padding: 18px 22px;
   }
 
-  .cta-image {
-    width: 120px;
-    max-width: 100%;
+  .guide-cta::before {
+    width: 100%;
+    opacity: 0.28;
+    background-size: 210px auto;
   }
 }
