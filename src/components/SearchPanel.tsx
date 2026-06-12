@@ -75,14 +75,14 @@ export function SearchPanel({
         ) : null}
       </div>
       <div className="select-field" data-dropdown="petType">
-        <span>아이 종류</span>
+        <span>반려동물 종류</span>
         <button
           type="button"
           aria-expanded={openDropdown === 'petType'}
           onClick={() => onDropdownChange(toggleDropdown(openDropdown, 'petType'))}
         >
           <PawPrint size={20} />
-          {filters.petType || '아이 종류를 선택하세요'}
+          {filters.petType || '종류를 선택하세요'}
           <ChevronDown size={18} />
         </button>
         {openDropdown === 'petType' ? (
@@ -103,7 +103,7 @@ export function SearchPanel({
         ) : null}
       </div>
       <div className="select-field" data-dropdown="weight">
-        <span>아이 체중</span>
+        <span>체중 선택</span>
         <button
           type="button"
           aria-expanded={openDropdown === 'weight'}
