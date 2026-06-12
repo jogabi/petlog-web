@@ -391,7 +391,7 @@ button {
 
 .provider-card,
 .cost-card,
-.checklist-card,
+.memorial-promo-card,
 .popular-guide-card {
   border: 1px solid rgba(232, 218, 206, 0.74);
   border-radius: 8px;
@@ -656,7 +656,7 @@ button {
 
 .cost-case-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(0, 1.26fr);
   gap: 18px;
 }
 
@@ -739,32 +739,60 @@ button {
   font-weight: 700;
 }
 
-.checklist-card {
-  display: grid;
-  align-content: center;
-  justify-items: center;
+.memorial-promo-card {
+  position: relative;
+  display: flex;
+  align-items: center;
   min-height: 140px;
-  padding: 20px;
-  color: var(--green-dark);
-  text-align: center;
+  overflow: hidden;
+  padding: 17px 16px;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255, 250, 245, 0.98) 0%,
+      rgba(255, 250, 245, 0.88) 44%,
+      rgba(255, 250, 245, 0.2) 76%
+    ),
+    url('./assets/memorial-space-card.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.checklist-card h3 {
-  margin: 14px 0 0;
-  color: #1a120e;
-  font-size: 17px;
-  font-weight: 800;
+.memorial-promo-copy {
+  position: relative;
+  z-index: 1;
+  width: 74%;
+  min-width: 0;
 }
 
-.checklist-card p {
-  margin: 9px 0 17px;
-  color: #5c4a40;
+.memorial-promo-copy span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #7b8440;
   font-size: 14px;
-  line-height: 1.5;
+  line-height: 1.2;
   font-weight: 700;
 }
 
-.checklist-card button,
+.memorial-promo-copy h3 {
+  margin: 12px 0 0;
+  color: #2d1d15;
+  font-size: 18px;
+  line-height: 1.32;
+  font-weight: 800;
+}
+
+.memorial-promo-copy p {
+  margin: 10px 0 15px;
+  color: #5c4a40;
+  font-size: 13px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.memorial-promo-copy a,
 .guide-cta a {
   display: inline-flex;
   align-items: center;
@@ -778,6 +806,14 @@ button {
   font-size: 15px;
   font-weight: 900;
   text-decoration: none;
+}
+
+.memorial-promo-copy a {
+  min-width: 126px;
+  height: 34px;
+  padding: 0 13px;
+  font-size: 13px;
+  white-space: nowrap;
 }
 
 .popular-guide-grid {

@@ -1,4 +1,4 @@
-import { CheckSquare } from 'lucide-react'
+import { Heart } from 'lucide-react'
 
 const costCases = [
   {
@@ -46,11 +46,24 @@ export function CostCases() {
             </div>
           </article>
         ))}
-        <article className="checklist-card">
-          <CheckSquare size={34} />
-          <h3>업체 선택 체크리스트</h3>
-          <p>좋은 장례업체를 선택하는 핵심 체크포인트 7가지</p>
-          <button type="button">확인하기</button>
+        <article className="memorial-promo-card" id="memory">
+          <div className="memorial-promo-copy">
+            <span>
+              추모 공간
+              <Heart size={15} aria-hidden="true" />
+            </span>
+            <h3>
+              우리 아이를 기억하는
+              <br />
+              추모 공간
+            </h3>
+            <p>
+              따뜻한 추억을 간직하고,
+              <br />
+              마음을 나눌 수 있는 공간입니다.
+            </p>
+            <a href="#memory">추모 공간 둘러보기</a>
+          </div>
         </article>
       </div>
     </section>
