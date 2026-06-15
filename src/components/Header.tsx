@@ -1,4 +1,4 @@
-import { Bell, Search } from 'lucide-react'
+import { Bell, Menu, Search } from 'lucide-react'
 import { BrandLogo } from './BrandLogo'
 
 export function Header() {
@@ -24,6 +24,9 @@ export function Header() {
         </button>
         <button className="icon-button" type="button" aria-label="알림">
           <Bell size={21} />
+        </button>
+        <button className="icon-button menu-button" type="button" aria-label="메뉴">
+          <Menu size={24} />
         </button>
         <button className="login-button" type="button">
           로그인
