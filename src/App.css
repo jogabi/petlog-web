@@ -438,7 +438,7 @@ button {
   position: absolute;
   inset: 0;
   content: '';
-  background: rgba(19, 17, 15, 0.32);
+  background: rgba(19, 17, 15, 0.52);
 }
 
 .provider-image-status {
@@ -955,11 +955,18 @@ button {
 
 .social-icons a {
   display: inline-grid;
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   place-items: center;
   color: #8a8a86;
   text-decoration: none;
+}
+
+.social-icons svg {
+  display: block;
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
 }
 
 .footer-column {
