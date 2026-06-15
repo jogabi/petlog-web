@@ -28,12 +28,27 @@ button {
 .topbar {
   position: relative;
   z-index: 4;
+  isolation: isolate;
   display: grid;
   grid-template-columns: 190px 1fr 150px;
   align-items: center;
   width: min(var(--page-width), calc(100% - var(--page-gutter) * 2));
   height: 70px;
   margin: 0 auto;
+}
+
+.topbar::before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  z-index: -1;
+  width: 100vw;
+  content: '';
+  background: #fff;
+  border-bottom: 1px solid rgba(111, 53, 27, 0.1);
+  box-shadow: 0 2px 12px rgba(75, 35, 20, 0.04);
+  transform: translateX(-50%);
 }
 
 .brand {
@@ -114,7 +129,7 @@ button {
   border: 1px solid #b78b75;
   border-radius: 7px;
   color: var(--brown);
-  background: rgba(255, 250, 245, 0.86);
+  background: #fff;
   font-size: 15px;
   font-weight: 900;
 }
