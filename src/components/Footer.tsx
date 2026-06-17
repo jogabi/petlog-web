@@ -30,6 +30,22 @@ export function Footer() {
             <br />
             펫로그가 함께합니다.
           </p>
+          <dl className="business-info" aria-label="사업자 정보">
+            <div>
+              <dt>사업자명</dt>
+              <dd>가비솔루션</dd>
+            </div>
+            <div>
+              <dt>이메일</dt>
+              <dd>
+                <a href="mailto:rkql1109@naver.com">rkql1109@naver.com</a>
+              </dd>
+            </div>
+            <div>
+              <dt>사업장 주소</dt>
+              <dd>서울시 서초구 사임당로8길13, 4층 402-165A호</dd>
+            </div>
+          </dl>
           <div className="social-icons" aria-label="소셜 링크">
             <a href="#naver-blog" aria-label="네이버 블로그">
               <NaverBlogIcon />

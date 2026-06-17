@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "deploy": "npm run build && firebase deploy --only hosting --project petlog-552ce",
+    "deploy:petlog": "npm run build && firebase deploy --only hosting --project petlog-552ce",
     "lint": "eslint .",
     "preview": "vite preview"
   },
