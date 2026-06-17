@@ -956,11 +956,21 @@ button {
 .cost-copy > span {
   display: inline-flex;
   padding: 5px 9px;
+  border: 1px solid rgba(149, 82, 43, 0.16);
+  box-shadow: 0 6px 16px rgba(119, 71, 40, 0.08);
 }
 
 .cost-bg-1 .cost-copy > span {
   color: var(--green-dark);
-  background: #edf6e5;
+  border-color: rgba(89, 118, 44, 0.16);
+  background: #e8f5dc;
+  box-shadow: 0 6px 16px rgba(77, 102, 40, 0.08);
+}
+
+.cost-bg-2 .cost-copy > span,
+.cost-bg-3 .cost-copy > span {
+  color: #7a3f22;
+  background: #f4dcc8;
 }
 
 .cost-copy h3 {
